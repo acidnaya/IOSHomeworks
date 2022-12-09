@@ -215,7 +215,7 @@ class WelcomeViewController: UIViewController {
 	@objc
 	private func newsButtonPressed() {
 		let news : NewsListViewController = NewsListViewController()
-		self.present(news, animated: true)
+		navigationController?.pushViewController(news, animated: true)
 	}
 	
 	@objc
