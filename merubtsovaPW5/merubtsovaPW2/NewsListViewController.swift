@@ -15,6 +15,30 @@ final class NewsListViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
+		setupNavbar()
+	}
+	
+	private func setupNavbar() {
+		navigationItem.title = "News"
+		navigationItem.leftBarButtonItem = UIBarButtonItem(
+			image: UIImage(systemName: "chevron.left"),
+			style: .plain,
+			target: self,
+			action: #selector(goBack)
+		)
+		navigationItem.rightBarButtonItem = UIBarButtonItem(
+			image: UIImage(systemName: "arrow.clockwise"),
+			style: .plain,
+			target: self,
+			action: #selector(refresh)
+		)
+		navigationItem.rightBarButtonItem?.tintColor = .label
+		navigationItem.leftBarButtonItem?.tintColor = .label
+	}
+	
+	@objc
+	private func refresh() {
+		fetchNews()
 	}
 	
 	private func setupUI() {
